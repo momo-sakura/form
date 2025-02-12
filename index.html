@@ -2,120 +2,222 @@
 <html lang="ja">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <title>フォーム</title>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="style.css">
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                <title>フォーム</title>
+                <style>
+                                body {
+                                                font-family: Arial, sans-serif;
+                                                text-align: left;
+                                                margin: 5px
+                                }
+                                .container {
+                                                max-width: 600px
+                                                margin: auto;
+                                }
+                                select, button {
+                                                font-size: 16px;
+                                                padding: 10px;
+                                                margin: 10px 0;
+                                                width: 100%;
+                                }
+                                .result {
+                                                margin-top: 20px;
+                                                font-weight: bold;
+                                }
+                </style>
+                <script src="script.js"></script>
 </head>
 
 <body>
+                <div id="resultScreen" style="display: none;">
+                                <h1>マッチング結果</h1>
+                                <div class="chart-container">
+                                                <canvas id="chart"></canvas>
+                                                <p>
+                                                                あなたのマッチング率はこんな感じ！！
+                                                                <lo>
+                                                                                <li>渋木先生との相性：<span id="match-rate-1">100</span>%</li>
+                                                                                <li>渋木先生とのMBTI相性：<span id="mbti-match-1"></span></li>
+                                                                                <li>梅澤先生との相性：<span id="match-rate-2">100</span>%</li>
+                                                                                <li>梅澤先生とのMBTI相性：<span id="mbti-match-2"></span></li>
+                                                                                <li>竹内先生との相性：<span id="match-rate-3">100</span>%</li>
+                                                                                <li>竹内先生とのMBTI相性：<span id="mbti-match-3"></span></li>
+                                                                                <li>高野先生との相性：<span id="match-rate-4">100</span>%</li>
+                                                                                <li>高野先生とのMBTI相性：<span id="mbti-match-4"></span></li>
+                                                                                <li>バゴット先生との相性：<span id="match-rate-5">100</span>%</li>
+                                                                                <li>バゴット先生とのMBTI相性：<span id="mbti-match-5"></span></li>
+                                                                                <li>渡邊先生との相性：<span id="match-rate-6">100</span>%</li>
+                                                                                <li>渡邊先生とのMBTI相性：<span id="mbti-match-6"></span></li>
+                                                                                <li>後藤先生との相性：<span id="match-rate-7">100</span>%</li>
+                                                                                <li>後藤先生とのMBTI相性：<span id="mbti-match-7"></span></li>
+                                                                                <li>野村先生との相性：<span id="match-rate-8">100</span>%</li>
+                                                                                <li>野村先生とのMBTI相性：<span id="mbti-match-8"></span></li>
+                                                                                <li>市川先生との相性：<span id="match-rate-9">100</span>%</li>
+                                                                                <li>市川先生とのMBTI相性：<span id="mbti-match-9"></span></li>
+                                                                                <li>橋本先生との相性：<span id="match-rate-10">100</span>%</li>
+                                                                                <li>橋本先生とのMBTI相性：<span id="mbti-match-10"></span></li>
+                                                                                <li>サマラシンハ優先生との相性：<span id="match-rate-11">100</span>%</li>
+                                                                                <li>サマラシンハ優先生とのMBTI相性：<span id="mbti-match-11"></span></li>
+                                                                </lo>
+                                                </p>
+                                </div>
+                                <button id="backButtton">戻る</button>
+                </div>
 
-  <div class="inout">
-    <ul>
-      <li>
-        <div class="inout__label">アウトドア派？インドア派？</div>
-        <div class="inout__wrap">
-          <div class="inout__basis"></div>
-          <div class="inout__axis">
-            <label>
-              <input type="radio" name="inout" value="アウトドア派">
-              アウトドア派
-            </label>
-            <label>
-              <input type="radio" name="inout" value="どちらかと言えばアウトドア派">
-              どちらかと言えばアウトドア派
-            </label>
-            <label>
-              <input type="radio" name="inout" value="どちらかと言えばインドア派">
-              どちらかと言えばインドア派
-            </label>
-            <label>
-              <input type="radio" name="inout" value="インドア派">
-              インドア派
-            </label>
-          </div>
-      </li>
-    </ul>
-  </div>
+                <div id="inputScreen">
+                                <form id="form" action="javascript:post();">
+                                                
+                                                
+                                                <div class="grade">
+                                                                <ul>
+                                                                                <li>
+                                                                                                <div class="grade__label">学年は？</div>
+                                                                                                <div class="grade__wrap">
+                                                                                                                <div class="grade__basis"></div>
+                                                                                                                <div class="grade__axis">
+                                                                                                                                <label>
+                                                                                                                                                <input type="radio" name="grade" value="1年生">
+                                                                                                                                                1年生
+                                                                                                                                </label>
+                                                                                                                                <label>
+                                                                                                                                                <input type="radio" name="grade" value="2年生">
+                                                                                                                                                2年生
+                                                                                                                                </label>
+                                                                                                                                <label>
+                                                                                                                                                <input type="radio" name="grade" value="3年生">
+                                                                                                                                                3年生
+                                                                                                                                </label>                                       
+                                                                                                                </div>
+                                                                                </li>
+                                                                </ul>
+                                                </div>
+                                </fieldset>
 
+                                <fieldset>
+                                                <div class="inout">
+                                                <ul>
+                                                                <li>
+                                                                                <div class="inout__label">アウトドア派？インドア派
+                                                                                </div>
+                                                                                <div class="inout__wrap">
+                                                                                                <div class="inout__basis"></div>
+                                                                                                <div class="inout__axis">
+                                                                                                                <label>
 
+                                                                                                                                <input type="radio" name="inout" value="アウトドア派">
+                アウトドア派
+                                                                                                                </label>
+                                                                                                                <label>
 
-
-  <div class="bunri">
-    <ul>
-      <li>
-        <div class="bunri__label">文系？それとも理系？</div>
-        <div class="bunri__wrap">
-          <div class="bunri__basis"></div>
-          <div class="bunri__axis">
-            <label>
-              <input type="radio" name="bunri" value="文系">
-              文系
-            </label>
-            <label>
-              <input type="radio" name="bunri" value="どちらかと言えば文系">
-              どちらかと言えば文系
-            </label>
-            <label>
-              <input type="radio" name="bunri" value="どちらでもない">
-              どちらでもない
-            </label>
-            <label>
-              <input type="radio" name="bunri" value="どちらかと言えば理系">
-              どちらかと言えば理系
-            </label>
-            <label>
-              <input type="radio" name="bunri" value="理系">
-              理系
-            </label>
-          </div>
-      </li>
-    </ul>
-  </div>
-
-  <fieldset>
-    <legend>趣味は？（複数回答可）</legend>
-    <label for="sport">スポーツ</label>
-    <input type="checkbox" name="hobby" value="スポーツ" id="sport"><br>
-    <label for="game">ゲーム</label>
-    <input type="checkbox" name="hobby" value="ゲーム" id="game"><br>
-    <label for="study">勉強</label>
-    <input type="checkbox" name="hobby" value="勉強" id="study"><br>
-    <label for="cooking">料理</label>
-    <input type="checkbox" name="hobby" value="料理" id="cooking"><br>
-    <label for="paint">イラスト</label>
-    <input type="checkbox" name="hobby" value="イラスト" id="paint"><br>
-    <label for="reading">読書</label>
-    <input type="checkbox" name="hobby" value="読書" id="reading"><br>
-    <label for="music">音楽鑑賞</label>
-    <input type="checkbox" name="hobby" value="音楽鑑賞" id="music"><br>
-    <label for="movie">映画鑑賞</label>
-    <input type="checkbox" name="hobby" value="映画鑑賞" id="movie"><br>
-  </fieldset>
-
-  <fieldset>
-    <legend>MBTIは？</legend>
-    <label><input type="radio" name="mbti" value="INTJ">INTJ</label><br>
-    <label><input type="radio" name="mbti" value="INTP">INTP</label><br>
-    <label><input type="radio" name="mbti" value="ENTJ">ENTJ</label><br>
-    <label><input type="radio" name="mbti" value="ENTP">ENTP</label><br>
-    <label><input type="radio" name="mbti" value="INFJ">INFJ</label><br>
-    <label><input type="radio" name="mbti" value="INFP">INFP</label><br>
-    <label><input type="radio" name="mbti" value="ENFJ">ENFJ</label><br>
-    <label><input type="radio" name="mbti" value="ENFP">ENFP</label><br>
-    <label><input type="radio" name="mbti" value="ISTJ">ISTJ</label><br>
-    <label><input type="radio" name="mbti" value="ESTJ">ESTJ</label><br>
-    <label><input type="radio" name="mbti" value="ESFJ">ESFJ</label><br>
-    <label><input type="radio" name="mbti" value="ISFJ">ISFJ</label><br>
-    <label><input type="radio" name="mbti" value="ISTP">ISTP</label><br>
-    <label><input type="radio" name="mbti" value="ESTP">ESTP</label><br>
-    <label><input type="radio" name="mbti" value="ESFP">ESFP</label><br>
-    <label><input type="radio" name="mbti" value="ISFP">ISFP</label><br>
-  </fieldset>
-
-  <input type="submit" value="送信">
+                                                                                                                                                                                                                          <input type="radio" name="inout" value="インドア派">
+                インドア派
+                                                                                                                </label>
+                                                                                                </div>
+                                                                </li>
+                                                </ul>
+                                </div>
 
 
-  </form>
+
+                                <div class="bunri">
+                                                <ul>
+                                                                <li>
+                                                                                <div class="bunri__label">文系？それとも理系？</div>
+                                                                                <div class="bunri__wrap">
+                                                                                                <div class="bunri__basis"></div>
+                                                                                                <div class="bunri__axis">
+                                                                                                                <label>
+                                                                                                                                <input type="radio" name="bunri" value="文系">
+                文系
+                                                                                                                </label>
+                                                                                                                <label>
+                                                                                                                                <input type="radio" name="bunri" value="どちらかと言えば文系">
+                どちらかと言えば文系
+                                                                                                                </label>
+                                                                                                                <label>
+                                                                                                                                <input type="radio" name="bunri" value="どちらでもない">
+                どちらでもない
+                                                                                                                </label>
+                                                                                                                <label>
+                                                                                                                                <input type="radio" name="bunri" value="どちらかと言えば理系">
+                どちらかと言えば理系
+                                                                                                                </label>
+                                                                                                                <label>
+                                                                                                                                <input type="radio" name="bunri" value="理系">
+                理系
+                                                                                                                </label>
+                                                                                                </div>
+                                                                </li>
+                                                </ul>
+                                </div>
+
+                                <fieldset>
+                                                <legend>趣味は？（複数回答可）</legend>
+                                                <label for="sport">スポーツ</label>
+                                                <input type="checkbox" name="hobby" value="スポーツ" id="sport"><br>
+                                                <label for="game">ゲーム</label>
+                                                <input type="checkbox" name="hobby" value="ゲーム" id="game"><br>
+                                                <label for="study">勉強</label>
+                                                <input type="checkbox" name="hobby" value="勉強" id="study"><br>
+                                                <label for="study">旅行</label>
+                                                <input type="checkbox" name="hobby" value="旅行" id="travel"><br>
+                                                <label for="cooking">料理</label>
+                                                <input type="checkbox" name="hobby" value="料理" id="cooking"><br>
+                                                <label for="paint">イラスト</label>
+                                                <input type="checkbox" name="hobby" value="イラスト" id="paint"><br>
+                                                <label for="reading">読書</label>
+                                                <input type="checkbox" name="hobby" value="読書" id="reading"><br>
+                                                <label for="music">音楽鑑賞</label>
+                                                <input type="checkbox" name="hobby" value="音楽鑑賞" id="music"><br>
+                                                <label for="movie">映画鑑賞</label>
+                                                <input type="checkbox" name="hobby" value="映画鑑賞" id="movie"><br>
+                                                <label for="movie">楽器</label>
+                                                <input type="checkbox" name="hobby" value="楽器" id="instrument"><br>
+                                                <label for="movie">岩盤浴</label>
+                                                <input type="checkbox" name="hobby" value="岩盤浴" id="stosau"><br>
+                                                <label for="movie">美術鑑賞</label>
+                                                <input type="checkbox" name="hobby" value="美術鑑賞" id="art""><br>
+                                                <label for="movie">カメラ</label>
+                                                <input type="checkbox" name="hobby" value="カメラ" id="camera""><br>
+                                </fieldset>
+
+                                <div class="mbti">
+                                                <label for="mbti">MBTIは？:</label>
+                                                <select id="mbti" name="mbti">
+                                                                <option value="">選択してください</option>
+                                                                <option value="ENFJ">ENFJ</option>
+                                                                <option value="ENFP">ENFP</option>
+                                                                <option                 value="ENTJ">ENTJ</option>
+                                                                <option value="ENTP">ENTP</option>
+                                                                <option
+value="ESFJ">ESFJ</option>
+                                                                <option                  value="ESFP">ESFP</option>
+                                                                <option value="ESTJ">ESTJ</option>
+                                                                <option value="ESTP">ESTP</option>
+                                                                <option value="INFP">INFP</option>
+                                                                <option value="INFJ">INFJ</option>
+                                                                <option value="INTJ">INTJ</option>
+                                                                <option value="INTP">INTP</option>
+                                                                <option value="ISFJ">ISFJ</option>
+                                                                <option value="ISFP">ISFP</option>
+                                                                <option value="ISTJ">ISTJ</option>
+                                                                <option value="ISTP">ISTP</option>
+                                                </select>
+
+                                                <div class="result" id="result"></div>
+                                </div>
+
+                                </script>
+
+
+                                <fieldset>
+                                                <input type="submit" value="送信">
+                                </fieldset>
+                </form>
+        </div>
+
 
 </body>
 
