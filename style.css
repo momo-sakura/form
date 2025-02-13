@@ -30,11 +30,13 @@ button:hover {
 
 
 
-#inputScreen, #resultScreen {
-  width: 80%;
-  max-width: 600px;
-  margin: 50px auto;
-  background: white;
+#result {
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-weight: bold;
+  color: #333;
 }
 
 .chart-container {
