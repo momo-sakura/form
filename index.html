@@ -31,45 +31,42 @@
 </head>
 
 <body>
-                <div id="resultScreen" style="display: none;">
+                <div id="result" style="display: none;">
+                                <canvas id="resultChart"></canvas>
                                 <h1>マッチング結果</h1>
-                                <div class="chart-container">
-                                                <canvas id="chart"></canvas>
-                                                <p>
-                                                                あなたのマッチング率はこんな感じ！！
-                                                                <lo>
-                                                                                <li>渋木先生との相性：<span id="match-rate-1">100</span>%</li>
-                                                                                <li>渋木先生とのMBTI相性：<span id="mbti-match-1"></span></li>
-                                                                                <li>梅澤先生との相性：<span id="match-rate-2">100</span>%</li>
-                                                                                <li>梅澤先生とのMBTI相性：<span id="mbti-match-2"></span></li>
-                                                                                <li>竹内先生との相性：<span id="match-rate-3">100</span>%</li>
-                                                                                <li>竹内先生とのMBTI相性：<span id="mbti-match-3"></span></li>
-                                                                                <li>高野先生との相性：<span id="match-rate-4">100</span>%</li>
-                                                                                <li>高野先生とのMBTI相性：<span id="mbti-match-4"></span></li>
-                                                                                <li>バゴット先生との相性：<span id="match-rate-5">100</span>%</li>
-                                                                                <li>バゴット先生とのMBTI相性：<span id="mbti-match-5"></span></li>
-                                                                                <li>渡邊先生との相性：<span id="match-rate-6">100</span>%</li>
-                                                                                <li>渡邊先生とのMBTI相性：<span id="mbti-match-6"></span></li>
-                                                                                <li>後藤先生との相性：<span id="match-rate-7">100</span>%</li>
-                                                                                <li>後藤先生とのMBTI相性：<span id="mbti-match-7"></span></li>
-                                                                                <li>野村先生との相性：<span id="match-rate-8">100</span>%</li>
-                                                                                <li>野村先生とのMBTI相性：<span id="mbti-match-8"></span></li>
-                                                                                <li>市川先生との相性：<span id="match-rate-9">100</span>%</li>
-                                                                                <li>市川先生とのMBTI相性：<span id="mbti-match-9"></span></li>
-                                                                                <li>橋本先生との相性：<span id="match-rate-10">100</span>%</li>
-                                                                                <li>橋本先生とのMBTI相性：<span id="mbti-match-10"></span></li>
-                                                                                <li>サマラシンハ優先生との相性：<span id="match-rate-11">100</span>%</li>
-                                                                                <li>サマラシンハ優先生とのMBTI相性：<span id="mbti-match-11"></span></li>
-                                                                </lo>
-                                                </p>
-                                </div>
-                                <button id="backButtton">戻る</button>
+                                <p>
+                                                あなたのマッチング率はこんな感じ！！
+                                                <lo>
+                                                                <li>渋木先生との相性：<span id="match-rate-1">100</span>%</li>
+                                                                <li>渋木先生とのMBTI相性：<span id="mbti-match-1"></span></li>
+                                                                <li>梅澤先生との相性：<span id="match-rate-2">100</span>%</li>
+                                                                <li>梅澤先生とのMBTI相性：<span id="mbti-match-2"></span></li>
+                                                                <li>竹内先生との相性：<span id="match-rate-3">100</span>%</li>
+                                                                <li>竹内先生とのMBTI相性：<span id="mbti-match-3"></span></li>
+                                                                <li>高野先生との相性：<span id="match-rate-4">100</span>%</li>
+                                                                <li>高野先生とのMBTI相性：<span id="mbti-match-4"></span></li>
+                                                                <li>バゴット先生との相性：<span id="match-rate-5">100</span>%</li>
+                                                                <li>バゴット先生とのMBTI相性：<span id="mbti-match-5"></span></li>
+                                                                <li>渡邊先生との相性：<span id="match-rate-6">100</span>%</li>
+                                                                <li>渡邊先生とのMBTI相性：<span id="mbti-match-6"></span></li>
+                                                                <li>後藤先生との相性：<span id="match-rate-7">100</span>%</li>
+                                                                <li>後藤先生とのMBTI相性：<span id="mbti-match-7"></span></li>
+                                                                <li>野村先生との相性：<span id="match-rate-8">100</span>%</li>
+                                                                <li>野村先生とのMBTI相性：<span id="mbti-match-8"></span></li>
+                                                                <li>市川先生との相性：<span id="match-rate-9">100</span>%</li>
+                                                                <li>市川先生とのMBTI相性：<span id="mbti-match-9"></span></li>
+                                                                <li>橋本先生との相性：<span id="match-rate-10">100</span>%</li>
+                                                                <li>橋本先生とのMBTI相性：<span id="mbti-match-10"></span></li>
+                                                                <li>サマラシンハ優先生との相性：<span id="match-rate-11">100</span>%</li>
+                                                                <li>サマラシンハ優先生とのMBTI相性：<span id="mbti-match-11"></span></li>
+                                                </lo>
+                                </p>
                 </div>
+                <form id="form" action="javascript:post();">
+                                <label for="email">筑坂でのメールアドレス (例: ss123456@sakado-s.tsukuba.ac.jp): </label>
+                                <input type="email" id="email" name="email" required><br>
 
-                <div id="inputScreen">
-                                <form id="form" action="javascript:post();">
-                                                
-                                                
+                                <fieldset>
                                                 <div class="grade">
                                                                 <ul>
                                                                                 <li>
@@ -216,7 +213,6 @@ value="ESFJ">ESFJ</option>
                                                 <input type="submit" value="送信">
                                 </fieldset>
                 </form>
-        </div>
 
 
 </body>
